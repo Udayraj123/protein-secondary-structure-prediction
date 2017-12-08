@@ -251,7 +251,7 @@ def raw_data_test_to_mini_batches():
 
 	seqs = {}
 	seq_pro = {}
-	for i in range(514):
+	for i in range(513):
 		seqs[i] = ""
 		seq_pro[i] = []
 
