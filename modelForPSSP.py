@@ -1,7 +1,7 @@
 # removed all maxpooling sliding windows + relu was introduced + weighted gates
 import tensorflow as tf
 from tensorflow.contrib import rnn
-import hickle as pickle
+
 from random import shuffle
 import numpy as np
 import time
@@ -10,18 +10,30 @@ import os
 import sys
 tf.logging.set_verbosity(tf.logging.ERROR)
 
-def save_obj(obj,filename,overwrite=1):
-  if(not overwrite and os.path.exists(filename)):
-    return
-  with open(filename,'wb') as f:
-    pickle.dump(obj,f,mode='w')
-    print("File saved to " + filename)
+import json as pickle
 
+print("Loading the data : ")
+train_data = np.load('./data/cullpdb+profile_6133_filtered.npy')
+test_data = np.load('./data/cb513+profile_split1.npy')
+print("Original shape : ", train_data.shape)
+
+def save_obj(obj,filename,overwrite=1):
+	if(not overwrite and os.path.exists(filename)):
+		return
+ 	with open(filename,'wb') as f:
+ 		pickle.dump(obj,f)#,mode="w")
+ 		print("File saved to " + filename)
+#	pickle.dump(obj, filename)#, mode='w')
+#	print("File saved to " + filename)
+	
 def load_obj(filename):
-  with open(filename, 'rb') as f:
-    obj = pickle.load(f)
-    print("File loaded from " + filename)
-    return obj
+ 	with open(filename) as f:
+ 		obj = pickle.load(f)
+ 		print("File loaded from " + filename)
+ 		return obj
+# 	obj = pickle.load(filename)
+# 	print("File loaded from " + filename)
+# 	return obj
 
 def get_data_train():
   file_path = './data/batch_wise_train_data_128.pkl'
