@@ -3,7 +3,7 @@ import pandas as pd
 import sklearn.metrics as skm
 import os
 from nltk import ngrams
-import hickle as pickle
+import json as pickle
 
 print("Loading the data : ")
 train_data = np.load('./data/cullpdb+profile_6133_filtered.npy')
@@ -16,7 +16,7 @@ def save_obj(obj,filename,overwrite=1):
 # 	with open(filename,'wb') as f:
 # 		pickle.dump(obj,f,mode="w")
 # 		print("File saved to " + filename)
-	pickle.dump(obj, filename, mode='w')
+	pickle.dump(obj, filename)#, mode='w')
 	print("File saved to " + filename)
 	
 def load_obj(filename):
