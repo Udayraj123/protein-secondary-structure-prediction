@@ -317,8 +317,10 @@ if __name__=="__main__":
 
   # Restore will happen from inside the class
   model = BrnnForPsspModelOne(model_path,load_model_filename,curr_model_filename)
-
+  
+  print("Loading train and test data")
   data_train, data_test = get_data_train()
+  print("Loaded train and test data")
   # for batch_no in range(43):
   model.get_shapes()
   batch_size = 128
