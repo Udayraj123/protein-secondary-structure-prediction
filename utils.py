@@ -3,7 +3,7 @@ import pandas as pd
 import sklearn.metrics as skm
 import os
 from nltk import ngrams
-import cPickle as pickle
+import hickle as pickle
 
 print("Loading the data : ")
 train_data = np.load('./data/cullpdb+profile_6133_filtered.npy')
