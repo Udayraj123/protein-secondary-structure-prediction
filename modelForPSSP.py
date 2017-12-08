@@ -80,9 +80,9 @@ class BrnnForPsspModelOne:
     self.biases_gate_2 = tf.Variable(tf.zeros([122], dtype=tf.float32), dtype=tf.float32)
     
     self.rnn_cell_f = rnn.GRUCell(num_units = hidden_units, 
-                                  activation = tf.relu)
+                                  activation = tf.nn.relu)
     self.rnn_cell_b = rnn.GRUCell(num_units = hidden_units, 
-                                  activation = tf.relu)
+                                  activation = tf.nn.relu)
     self.outputs, self.states = tf.nn.bidirectional_dynamic_rnn(
       cell_fw = self.rnn_cell_f,
       cell_bw = self.rnn_cell_b,
