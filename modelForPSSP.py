@@ -24,8 +24,8 @@ def load_obj(filename):
     return obj
 
 def get_data_train():
-  file_path = './data/batch_wise_data_128.pkl'
-  file_path_1 = './data/batch_wise_data_128_test.pkl'
+  file_path = './data/batch_wise_train_data_128.pkl'
+  file_path_1 = './data/batch_wise_test_data_128.pkl'
   p=time.time()
   with open(file_path, 'rb') as file_ip:
     data_train = pickle.load(file_ip)
