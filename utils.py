@@ -13,11 +13,11 @@ print("Original shape : ", train_data.shape)
 def save_obj(obj,filename,overwrite=1):
 	if(not overwrite and os.path.exists(filename)):
 		return
-# 	with open(filename,'wb') as f:
-# 		pickle.dump(obj,f,mode="w")
-# 		print("File saved to " + filename)
-	pickle.dump(obj, filename)#, mode='w')
-	print("File saved to " + filename)
+ 	with open(filename,'wb') as f:
+ 		pickle.dump(obj,f,mode="w")
+ 		print("File saved to " + filename)
+#	pickle.dump(obj, filename)#, mode='w')
+#	print("File saved to " + filename)
 	
 def load_obj(filename):
  	with open(filename) as f:
