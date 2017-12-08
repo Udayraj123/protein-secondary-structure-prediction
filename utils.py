@@ -208,7 +208,8 @@ def raw_data_train_to_mini_batches():
 		# print(len(mini_batch_data[i][0]))
 	# print(total_samples)
 	
-	save_obj(mini_batch_data, './data/batch_wise_train_data_' + str(batch_size) + '.pkl')
+	return mini_batch_data
+	# save_obj(mini_batch_data, './data/batch_wise_train_data_' + str(batch_size) + '.pkl')
 
 
 def raw_data_test_to_mini_batches():
@@ -355,10 +356,8 @@ def raw_data_test_to_mini_batches():
 		temp.append(seq_len[i * batch_size : (i + 1) * batch_size ])
 		mini_batch_data[i] = temp
 	print("Total len verfn results : ", total_len_of_all_seqs == amino_acids_total)
-	save_obj(mini_batch_data, './data/batch_wise_test_data_' + str(batch_size) + '.pkl')
-
-raw_data_train_to_mini_batches()
-raw_data_test_to_mini_batches()
+	# save_obj(mini_batch_data, './data/batch_wise_test_data_' + str(batch_size) + '.pkl')
+	return mini_batch_data
 
 
 # word_to_glove =  read_glove_vec_files()

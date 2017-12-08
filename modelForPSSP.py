@@ -2,6 +2,7 @@
 import tensorflow as tf
 from tensorflow.contrib import rnn
 
+from utils import *
 from random import shuffle
 import numpy as np
 import time
@@ -333,7 +334,9 @@ if __name__=="__main__":
   model = BrnnForPsspModelOne(model_path,load_model_filename,curr_model_filename)
   
   print("Loading train and test data")
-  data_train, data_test = get_data_train()
+  data_train = raw_data_train_to_mini_batches()
+  data_test = raw_data_test_to_mini_batches()
+  # data_train, data_test = get_data_train()
   print("Loaded train and test data")
   # for batch_no in range(43):
   model.get_shapes()
