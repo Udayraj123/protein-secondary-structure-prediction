@@ -155,7 +155,9 @@ class BrnnForPsspModelOne:
       if not os.path.exists(model_path):
         print("created DIR "+model_path)
         os.makedirs(model_path)
+      print("Running self.init")
       self.sess.run(self.init)
+      print("Completed self.init")
       
     
 
