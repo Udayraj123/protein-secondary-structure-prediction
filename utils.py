@@ -20,13 +20,13 @@ def save_obj(obj,filename,overwrite=1):
 	print("File saved to " + filename)
 	
 def load_obj(filename):
-# 	with open(filename, 'rb') as f:
-# 		obj = pickle.load(f)
-# 		print("File loaded from " + filename)
-# 		return obj
-	obj = pickle.load(filename)
-	print("File loaded from " + filename)
-	return obj
+ 	with open(filename) as f:
+ 		obj = pickle.load(f)
+ 		print("File loaded from " + filename)
+ 		return obj
+# 	obj = pickle.load(filename)
+# 	print("File loaded from " + filename)
+# 	return obj
 
 def read_glove_vec_files():
 	file_path = './data/vectors_u.txt'
