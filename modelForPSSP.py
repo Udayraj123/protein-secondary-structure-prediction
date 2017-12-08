@@ -12,10 +12,10 @@ tf.logging.set_verbosity(tf.logging.ERROR)
 
 import json as pickle
 
-print("Loading the data : ")
-train_data = np.load('./data/cullpdb+profile_6133_filtered.npy')
-test_data = np.load('./data/cb513+profile_split1.npy')
-print("Original shape : ", train_data.shape)
+# print("Loading the data : ")
+# train_data = np.load('./data/cullpdb+profile_6133_filtered.npy')
+# test_data = np.load('./data/cb513+profile_split1.npy')
+# print("Original shape : ", train_data.shape)
 
 def save_obj(obj,filename,overwrite=1):
 	if(not overwrite and os.path.exists(filename)):
