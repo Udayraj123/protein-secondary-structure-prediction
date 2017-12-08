@@ -14,7 +14,7 @@ def save_obj(obj,filename,overwrite=1):
 	if(not overwrite and os.path.exists(filename)):
 		return
  	with open(filename,'wb') as f:
- 		pickle.dump(obj,f,mode="w")
+ 		pickle.dump(obj,f)#,mode="w")
  		print("File saved to " + filename)
 #	pickle.dump(obj, filename)#, mode='w')
 #	print("File saved to " + filename)
