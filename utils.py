@@ -43,16 +43,18 @@ def read_glove_vec_files():
 
 def raw_data_train_to_mini_batches():
 	train_data_n = np.reshape(train_data, [-1, 57])
+	print("Verifying shape of reshaped data")
 	print(train_data_n.shape, train_data_n.shape[0] == 700 * train_data.shape[0])
 	amino_acids = train_data_n[:, 0:21]
 	amino_acids_seq_profile = train_data_n[:, 35:57]
-	print(amino_acids.shape)
+	# print(amino_acids.shape)
 	no_of_amino_acids = np.sum(amino_acids, axis = 0)
-	print(no_of_amino_acids)
+	# print(no_of_amino_acids)
 	t_no_of_amino_acids = np.sum(no_of_amino_acids)
-	print(t_no_of_amino_acids)
+	# print(t_no_of_amino_acids)
 	no_seq = train_data_n[:, 21]
 	t_no_of_no_seq = np.sum(no_seq)
+	
 	print(t_no_of_amino_acids, t_no_of_no_seq, t_no_of_amino_acids + t_no_of_no_seq)
 	amino_acids_with_no_seq = train_data_n[:, 0:22]
 	amino_acids_str_with_no_seq = train_data_n[:, 22:31]
@@ -206,7 +208,8 @@ def raw_data_train_to_mini_batches():
 
 def raw_data_test_to_mini_batches():
 	print("raw_test_data_to_mini_batches : ")
-	test_data_n = np.reshape(test_data, [-1, 57])
+	test_data_n = test_data[:-1, :]
+	test_data_n = np.reshape(test_data_n, [-1, 57])
 	amino_acids = test_data_n[:, 0:21]
 	amino_acids_seq_profile = test_data_n[:, 35:57]
 	print(amino_acids.shape)
@@ -248,7 +251,7 @@ def raw_data_test_to_mini_batches():
 
 	seqs = {}
 	seq_pro = {}
-	for i in range(513):
+	for i in range(514):
 		seqs[i] = ""
 		seq_pro[i] = []
 
@@ -335,11 +338,6 @@ def raw_data_test_to_mini_batches():
 
 	batch_size = 128
 	no_of_batches = 513 // batch_size
-	# 5534 // batch_size  = 43 for batch_size = 128
-	# 5534 // batch_size  = 1106 for batch_size = 5
-	# 0 - 42 batches with batch_size samples
-	# 43 batch with 30 samples
-	# 5504 + 30 samples in total
 	mini_batch_data = {}
 	print("Total number of batches : ", no_of_batches)
 	for i in range(no_of_batches):
@@ -351,18 +349,7 @@ def raw_data_test_to_mini_batches():
 		temp.append(masks[i * batch_size : (i + 1) * batch_size ])
 		temp.append(seq_len[i * batch_size : (i + 1) * batch_size ])
 		mini_batch_data[i] = temp
-
-
-
-
-
-
-
-
-
-
-
-	# print("Total len verfn results : ", total_len_of_all_seqs == amino_acids_total)
+	print("Total len verfn results : ", total_len_of_all_seqs == amino_acids_total)
 	save_obj(mini_batch_data, './data/batch_wise_test_data_' + str(batch_size) + '.pkl')
 
 raw_data_train_to_mini_batches()
