@@ -1,7 +1,7 @@
 # removed all maxpooling sliding windows + relu was introduced + weighted gates
 import tensorflow as tf
 from tensorflow.contrib import rnn
-import pickle
+import cPickle as pickle
 from random import shuffle
 import numpy as np
 import time
