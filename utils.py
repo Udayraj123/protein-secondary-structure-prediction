@@ -10,20 +10,20 @@ train_data = np.load('./data/cullpdb+profile_6133_filtered.npy')
 test_data = np.load('./data/cb513+profile_split1.npy')
 print("Original shape : ", train_data.shape)
 
-def save_obj(obj,filename,overwrite=1):
-	if(not overwrite and os.path.exists(filename)):
-		return
- 	with open(filename,'wb') as f:
- 		pickle.dump(obj,f)#,mode="w")
- 		print("File saved to " + filename)
-#	pickle.dump(obj, filename)#, mode='w')
-#	print("File saved to " + filename)
+# def save_obj(obj,filename,overwrite=1):
+# 	if(not overwrite and os.path.exists(filename)):
+# 		return
+#  	with open(filename,'wb') as f:
+#  		pickle.dump(obj,f)#,mode="w")
+#  		print("File saved to " + filename)
+# #	pickle.dump(obj, filename)#, mode='w')
+# #	print("File saved to " + filename)
 	
-def load_obj(filename):
- 	with open(filename) as f:
- 		obj = pickle.load(f)
- 		print("File loaded from " + filename)
- 		return obj
+# def load_obj(filename):
+#  	with open(filename) as f:
+#  		obj = pickle.load(f)
+#  		print("File loaded from " + filename)
+#  		return obj
 # 	obj = pickle.load(filename)
 # 	print("File loaded from " + filename)
 # 	return obj
