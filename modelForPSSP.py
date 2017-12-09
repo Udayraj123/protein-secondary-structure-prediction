@@ -341,7 +341,7 @@ if __name__=="__main__":
   # for batch_no in range(43):
   model.get_shapes()
   batch_size = 128
-  n_epochs = 50
+  n_epochs = 100
   num_batches= 5534 // batch_size
   num_batches_test= 513 // batch_size
   
