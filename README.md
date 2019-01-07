@@ -6,4 +6,4 @@ Done by <a href="https://github.com/Udayraj123">Udayraj Deshmukh</a> and <a href
 # Steps to run this model
 1. `chmod +x dependencies_installation.sh processCB613.sh`
 2. run processCB613.sh
-3. run model_6.py
+3. run modelForPSSP.py
